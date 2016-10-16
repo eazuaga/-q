@@ -2,7 +2,7 @@ var routes = {};
 var params = [];
 var controller = controller || {};
 function change() {
-     params = window.location.hash.substring(2).split('/');
+     params = getPath();
     if (params[1] != null) {
         route[params[0]](params[1]);
     }
@@ -11,7 +11,10 @@ function change() {
      }
 
 }
+function getPath(){
+ return window.location.hash.substring(2).split('/');;
 
+}
 controller.home1 = function () {
     document.title = 'Generics - home';
     alert("gome");
